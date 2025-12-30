@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioGene | Master the Science of Life</title>
+
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- THREE.JS -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+
+<style>
+:root{
+  --bg:#030b08;
+  --green:#1b4332;
+  --mint:#d8f3dc;
+  --gold:#d4af37;
+  --glass:rgba(255,255,255,0.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+
+body{
+  background:var(--bg);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:16px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(15px);
+  z-index:1000;
+}
+
+.logo{font-size:1.6rem;font-weight:700;}
+.logo span{color:var(--gold);}
+
+nav ul{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  font-size:.85rem;
+  letter-spacing:1px;
+}
+
+/* MOBILE MENU */
+.menu-btn{
+  display:none;
+  font-size:1.4rem;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  background:#050f0c;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  transform:translateY(-100%);
+  transition:.6s ease;
+  z-index:999;
+}
+
+.mobile-menu a{
+  color:white;
+  font-size:1.4rem;
+  margin:15px 0;
+  text-decoration:none;
+}
+
+.mobile-menu.active{transform:translateY(0);}
+
+/* HERO */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+
+#three-container{
+  position:absolute;
+  inset:0;
+}
+
+.hero-content{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:2;
+  background:linear-gradient(to bottom,rgba(0,0,0,.4),var(--bg));
+}
+
+.hero h1{
+  font-size:4rem;
+  letter-spacing:2px;
+  text-shadow:0 0 20px #2d6a4f;
+}
+
+.hero p{
+  margin-top:15px;
+  color:var(--mint);
+}
+
+/* OPTIONS */
+.options{
+  padding:120px 10%;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  padding:40px 25px;
+  text-align:center;
+  cursor:pointer;
+  transition:.5s;
+  transform-style:preserve-3d;
+}
+
+.card:hover{
+  transform:translateY(-20px) rotateX(10deg) rotateY(-10deg);
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
+}
+
+.card i{
+  font-size:3rem;
+  color:var(--gold);
+  margin-bottom:20px;
+}
+
+/* PAGE TRANSITION */
+.fade-out{
+  animation:fadeOut .6s forwards;
+}
+
+@keyframes fadeOut{
+  to{opacity:0;transform:scale(.95);}
+}
+
+/* FOOTER */
+footer{
+  padding:30px;
+  text-align:center;
+  color:#aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul{display:none;}
+  .menu-btn{display:block;}
+  .hero h1{font-size:2.6rem;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">BIO<span>GENE</span></div>
+  <ul>
+       
+    <li><a href="about.html">About us</a></li>
+    <li><a href="#">Results</a></li>
+  </ul>
+  <div class="menu-btn"><i class="fas fa-bars"></i></div>
+</nav>
+
+<div class="mobile-menu">
+  <a href="#">Home</a>
+  
+  
+  <a href="#">Results</a>
+</div>
+
+<section class="hero">
+  <div id="three-container"></div>
+  <div class="hero-content">
+    <h1>Welcome to BioGene</h1>
+    <p>Life • Science • Evolution</p>
+  </div>
+</section>
+
+<section class="options">
+  <div class="grid">
+
+    <div class="card" onclick="navigate('zoology.html')">
+      <i class="fas fa-microscope"></i>
+      <h3>ZOOLOGY</h3>
+      <p>2nd Paper</p>
+    </div>
+
+    <div class="card" onclick="navigate('exam.html')">
+      <i class="fas fa-dna"></i>
+      <h3>EXAMS</h3>
+      <p>MCQ Tests</p>
+    </div>
+
+    <div class="card" onclick="navigate('botany.html')">
+      <i class="fas fa-leaf"></i>
+      <h3>BOTANY</h3>
+      <p>1st Paper</p>
+    </div>
+
+    <div class="card">
+      <i class="fas fa-flask"></i>
+      <h3>LAB</h3>
+      <p>Virtual Practical</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>© BioGene</footer>
+
+<!-- AMBIENT SOUND -->
+<audio id="ambience" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7a7b0b2a8a.mp3">
+</audio>
+
+<script>
+/* MOBILE MENU */
+const menuBtn=document.querySelector(".menu-btn");
+const mobileMenu=document.querySelector(".mobile-menu");
+menuBtn.onclick=()=>mobileMenu.classList.toggle("active");
+
+/* PAGE TRANSITION */
+function navigate(url){
+  document.body.classList.add("fade-out");
+  setTimeout(()=>location.href=url,600);
+}
+
+/* AMBIENT SOUND */
+const audio=document.getElementById("ambience");
+document.body.addEventListener("click",()=>{
+  audio.volume=.15;
+  audio.play();
+},{once:true});
+
+/* THREE.JS DNA */
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,0.1,1000);
+camera.position.z=12;
+
+const renderer=new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(innerWidth,innerHeight);
+document.getElementById("three-container").appendChild(renderer.domElement);
+
+const group=new THREE.Group();
+scene.add(group);
+
+for(let i=0;i<120;i++){
+  const geo=new THREE.SphereGeometry(.08,16,16);
+  const mat=new THREE.MeshBasicMaterial({color:0x74c69d});
+  const dot=new THREE.Mesh(geo,mat);
+  const angle=i*.3;
+  dot.position.set(Math.sin(angle)*2,i*.08-4,Math.cos(angle)*2);
+  group.add(dot);
+}
+
+function animate(){
+  requestAnimationFrame(animate);
+  group.rotation.y+=0.004;
+  renderer.render(scene,camera);
+}
+animate();
+
+window.onresize=()=>{
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+}
+</script>
+
+</body>
+</html>

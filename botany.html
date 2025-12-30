@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Botany Chapters | BioGene</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#020b08;
+  --leaf:#1f5f3b;
+  --chlorophyll:#2d6a4f;
+  --mint:#d8f3dc;
+  --gold:#d4af37;
+  --glass:rgba(255,255,255,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',Segoe UI,sans-serif;
+}
+
+body{
+  background:
+    radial-gradient(circle at top,#1f5f3b 0%,#020b08 55%);
+  min-height:100vh;
+  color:white;
+}
+
+/* FLOATING HOME BUTTON */
+.home-btn{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#d4af37,#ffdf7e);
+  color:#1b4332;
+  font-size:22px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  z-index:999;
+  transition:.4s;
+}
+.home-btn:hover{
+  transform:translateX(-50%) scale(1.1);
+  box-shadow:0 0 25px #d4af37;
+}
+
+/* MAIN CONTAINER */
+.container{
+  max-width:900px;
+  margin:120px auto 60px;
+  padding:40px;
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  border-radius:25px;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+  animation:fadeUp 1s ease forwards;
+}
+
+/* TITLE */
+h1{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:35px;
+  color:var(--gold);
+  letter-spacing:2px;
+}
+
+/* CHAPTER CARDS */
+.chapter{
+  padding:18px 22px;
+  margin:14px 0;
+  border-radius:14px;
+  background:linear-gradient(
+    145deg,
+    rgba(45,106,79,.65),
+    rgba(31,95,59,.65)
+  );
+  cursor:pointer;
+  transition:.45s;
+  position:relative;
+  overflow:hidden;
+  transform-style:preserve-3d;
+}
+
+/* LIGHT SWEEP */
+.chapter::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.22),
+    transparent
+  );
+  transform:translateX(-100%);
+  transition:.6s;
+}
+
+.chapter:hover::before{
+  transform:translateX(100%);
+}
+
+.chapter:hover{
+  transform:translateY(-8px) rotateX(6deg);
+  box-shadow:0 25px 50px rgba(0,0,0,.6);
+}
+
+.chapter span{
+  font-size:.9rem;
+  color:var(--mint);
+  opacity:.85;
+}
+
+/* ENTRY ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .container{padding:25px;margin-top:100px;}
+  h1{font-size:2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME BUTTON -->
+<a href="biogene.html" class="home-btn">🧠</a>
+
+<div class="container">
+
+<h1>Botany Chapters</h1>
+
+<div class="chapter" onclick="location.href='botchapter1.html'">
+  Chapter 1 – Cell Structure <span>• Plant Cell</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter2.html'">
+  Chapter 2 – Plant Tissues <span>• Meristem & Permanent</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter3.html'">
+  Chapter 3 – Morphology of Plants <span>• Root, Stem, Leaf</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter4.html'">
+  Chapter 4 – Anatomy of Plants <span>• Internal Structure</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter5.html'">
+  Chapter 5 – Photosynthesis <span>• Light & Dark Reactions</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter6.html'">
+  Chapter 6 – Respiration <span>• Energy Release</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter7.html'">
+  Chapter 7 – Plant Growth & Hormones <span>• Auxin, GA, Cytokinin</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter8.html'">
+  Chapter 8 – Transport in Plants <span>• Xylem & Phloem</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter9.html'">
+  Chapter 9 – Mineral Nutrition <span>• Macro & Micro</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter10.html'">
+  Chapter 10 – Reproduction in Plants <span>• Sexual & Asexual</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter11.html'">
+  Chapter 11 – Plant Genetics <span>• Mendel & Beyond</span>
+</div>
+
+<div class="chapter" onclick="location.href='botchapter12.html'">
+  Chapter 12 – Evolution in Plants <span>• Adaptation</span>
+</div>
+
+</div>
+
+</body>
+</html>

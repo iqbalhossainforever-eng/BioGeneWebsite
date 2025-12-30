@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zoology | BioGene</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --bg:#020b08;
+  --green:#1b4332;
+  --emerald:#2d6a4f;
+  --mint:#d8f3dc;
+  --gold:#d4af37;
+  --glass:rgba(255,255,255,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',Segoe UI,sans-serif;
+}
+
+body{
+  background:
+    radial-gradient(circle at top,#1b4332 0%,#020b08 55%);
+  min-height:100vh;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* FLOATING HOME BUTTON */
+.home-btn{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#d4af37,#ffdf7e);
+  color:#1b4332;
+  font-size:22px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  z-index:999;
+  transition:.4s;
+}
+.home-btn:hover{
+  transform:translateX(-50%) scale(1.1);
+  box-shadow:0 0 25px #d4af37;
+}
+
+/* MAIN CONTAINER */
+.container{
+  max-width:900px;
+  margin:120px auto 60px;
+  padding:40px;
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  border-radius:25px;
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+  animation:fadeUp 1s ease forwards;
+}
+
+/* TITLE */
+h1{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:35px;
+  color:var(--gold);
+  letter-spacing:2px;
+}
+
+/* CHAPTER LIST */
+.chapter{
+  padding:18px 22px;
+  margin:14px 0;
+  border-radius:14px;
+  background:linear-gradient(
+    145deg,
+    rgba(45,106,79,.6),
+    rgba(27,67,50,.6)
+  );
+  cursor:pointer;
+  transition:.45s;
+  position:relative;
+  overflow:hidden;
+  transform-style:preserve-3d;
+}
+
+/* GLOW LINE */
+.chapter::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
+}
+
+.chapter:hover::before{
+  transform:translateX(100%);
+}
+
+.chapter:hover{
+  transform:translateY(-8px) rotateX(6deg);
+  box-shadow:0 25px 50px rgba(0,0,0,.6);
+}
+
+.chapter span{
+  font-size:.9rem;
+  color:var(--mint);
+  opacity:.8;
+}
+
+/* ENTRY ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .container{padding:25px;margin-top:100px;}
+  h1{font-size:2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME BUTTON -->
+<a href="biogene.html" class="home-btn">🧠</a>
+
+<div class="container">
+
+<h1>Zoology Chapters</h1>
+
+<div class="chapter" onclick="location.href='chapter1.html'">
+  Chapter 1 – Animal Kingdom <span>• Diversity & Classification</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter2.html'">
+  Chapter 2 – Structural Organisation <span>• Tissues & Organs</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter3.html'">
+  Chapter 3 – Digestion & Absorption <span>• Nutrition</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter4.html'">
+  Chapter 4 – Breathing & Exchange <span>• Respiration</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter5.html'">
+  Chapter 5 – Body Fluids <span>• Circulation</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter6.html'">
+  Chapter 6 – Locomotion <span>• Movement</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter7.html'">
+  Chapter 7 – Neural Control <span>• Nervous System</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter8.html'">
+  Chapter 8 – Chemical Coordination <span>• Endocrine System</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter9.html'">
+  Chapter 9 – Reproduction <span>• Life Cycle</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter10.html'">
+  Chapter 10 – Human Reproduction <span>• Development</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter11.html'">
+  Chapter 11 – Reproductive Health <span>• Disorders</span>
+</div>
+
+<div class="chapter" onclick="location.href='chapter12.html'">
+  Chapter 12 – Evolution <span>• Origin of Life</span>
+</div>
+
+</div>
+
+</body>
+</html>
